@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form class="" action="" method="post">
+      ID<br>
+      <input type="text" name="id" value="<%= data.id %>" readonly>
+      <br>String<br>
+      <input type="text" name="string" value="<%= data.string %>">
+      <br>Integer<br>
+      <input type="number" name="integer" value="<%= data.integer %>">
+      <br>Float<br>
+      <input type="number" name="float" step="0.01" value="<%= data.float %>">
+      <br>Date<br>
+      <input name= "date" type="date" value="<%=data.date %>">
+      <br>Boolean<br>
+      <select name="bool">
+        <option value="true" <%= data.bool === "true" ? ' selected' : '' %> >True</option>
+        <option value="false" <%= data.bool  === "false" ? ' selected' : '' %> >False</option>
+      </select>
+      <br><br>
+      <button type="submit" name="button">update</button>
+    </form>
+  </body>
+</html>
