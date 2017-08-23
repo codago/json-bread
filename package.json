@@ -1,0 +1,27 @@
+{
+  "name": "json-bread",
+  "version": "1.0.0",
+  "description": "challange #19",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codago/json-bread.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codago/json-bread/issues"
+  },
+  "homepage": "https://github.com/codago/json-bread#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "ejs": "^2.5.7",
+    "express": "^4.15.4",
+    "jsonfile": "^3.0.1"
+  }
+}
