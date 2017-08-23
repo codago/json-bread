@@ -1,0 +1,26 @@
+[
+   {
+      "id": 1503472590580,
+      "string": "5",
+      "integer": "5",
+      "float": "5",
+      "date": "2017-08-05",
+      "boolean": "false"
+   },
+   {
+      "id": 1503474198329,
+      "string": "b",
+      "integer": "1",
+      "float": "0.8",
+      "date": "2017-08-05",
+      "boolean": "false"
+   },
+   {
+      "id": 1503475983985,
+      "string": "bb",
+      "integer": "-88",
+      "float": "1.8",
+      "date": "2017-08-10",
+      "boolean": "true"
+   }
+]

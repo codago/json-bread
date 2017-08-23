@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title> Edit </title>
+</head>
+<body>
+  <h2>Edit Form</h2>
+  <h3> Filters</h3>
+  <form action="/edit/<%= item.id %>" method="post">
+    String: <input type="text" name="string" value="<%= item.string%>"/>
+    <br />
+    Integer: <input type="number" name="integer" value="<%= item.integer%>"/>
+    <br />
+    Float: <input type="float" name="float" accept=""value="<%= item.float%>" />
+    <br />
+    Date : <input type="date" name="date" value="<%= item.date%>" />
+    <br />
+    Boolean:
+    <select name="boolean" >
+      <option value="true" <% if(item.boolean=='true'){%> selected <% } %>>True</option>
+      <option value="false" <% if(item.boolean=='false'){%> selected <% } %>>False</option>
+    </select>
+    <br />
+    <button type="submit">save</button>
+    </form>
+  </body>
+  </html>

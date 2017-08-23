@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+    <meta charset="utf-8">
+    <title> BREAD </title>
+
+    <style>
+        th, td {
+      padding: 5px;
+      text-align: center;
+    }
+    .button {
+      background-color: black;
+      border: solid;
+      border-width: 5px;
+      color: white;
+      padding: 10px 30px;
+      text-align: center;
+      font-size: 10px;
+    }
+    .button1{
+      background-color: grey;
+      border: solid;
+      border-width: 5px;
+      color: white;
+      text-align: center;
+      font-size: 20px;
+    }
+    .button2{
+      background-color: grey;
+      border: solid;
+      border-width: 5px;
+      color: white;
+      text-align: center;
+      font-size: 20px;
+    }
+  </style>
+  </head>
+  <body>
+    <h1> CRUD: CREATE-READ-UPDATE-DELETE  </h1>
+  <table border= "1">
+  <thead>
+      <tr>
+        <th width="300px">ID</th>
+        <th width="300px">String</th>
+          <th width="300px">integer</th>
+        <th width="300px">Float</th>
+        <th width="300px"> Date </th>
+        <th width="300px">Boolean </th>
+        <th width="300px"> Action </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (data.length > 0) { %>
+        <% for (var i=0; i< data.length; i++){ %>
+      <tr>
+        <td> <%= data[i].id %></td>
+        <td> <%= data[i].string %> </td>
+        <td> <%= data[i].integer %> </td>
+        <td> <%= data[i].float %> </td>
+        <td> <%= data[i].date %> </td>
+        <td> <%= data[i].boolean %> </td>
+                <td><a href='edit/<%= data[i].id %>' class="button1"> Edit </a> &nbsp;
+                 <a href="delete/<%= data[i].id %>" class="button2" onclick="return confirm('Are You Sure?');" > Delete </a></td> &nbsp;
+      </tr>
+      <% } %>
+      <% }else { %>
+          <tr>
+            <td colspan="7"> data kosong </td>
+          </tr>
+          <% } %>
+        </tbody>
+  </table>
+  <br> <a href="add" button class="button"> ADD </a> </button>
+  </body>
+  </html>
