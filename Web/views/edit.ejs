@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Edit</title>
+</head>
+<body>
+  <form class="" action="<%= item.id %>" method="post">
+    ID      :<br>
+    <input type="number" name="id" value="<%= item.id %>"> <br>
+    String  :<br>
+    <input type="string" name="string" value="<%= item.string %>"><br>
+    Integer :<br>
+    <input type="integer" name="integer" value="<%= item.integer %>"><br>
+    Float   :<br>
+    <input type="float" name="float" value="<%= item.float %>"><br>
+    Date    :<br>
+    <input type="date" name="date" value="<%= item.date %>"><br>
+    Boolean :<br>
+    <select name="boolean">
+      <option value=" true"> True </option>
+      <option value=" false"> False </option>
+    </select>
+    <button type="submit" name="button">update</button>
+  </form>
+</body>
+</html>
