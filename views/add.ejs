@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> test | Add Data </title>
+  </head>
+  <body>
+    <h1>ADD DATA</h1>
+    <div id=menu>
+      <a href="/">Home</a> | <a href="add">Add</a>
+
+  <br>
+  <br>
+  <br>
+
+    <form action="/add" method="post">
+      <table>
+    <tr>
+     String: <br> <input type="text" name = "string"> <br>
+     Integer: <br> <input type="number" step="1" name = "integer"> <br>
+     Float: <br> <input type="number" step="0.01" name = "float"> <br>
+     Date: <br> <input type="date" name = "date"> <br>
+
+     Boolean:
+     <select name="boolean">
+       <option value="true">True</option>
+       <option value="false">False</option>
+    </select>
+    <br>
+    <br>
+    <input type="submit" value = "add"> <br>
+
+    </div>
+    </form>
+
+  </div>
+  </body>
+</html>

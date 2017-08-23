@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+
+    <style>
+    .button1{
+      background-color: green;
+      border-width: 10px;
+      color: white; //warna tulisan
+      padding: 20px;
+      text-align: center;
+      font-size: 20px;
+    }
+
+    .button2{
+      background-color: red;
+      border-width: 10px;
+      color: white; //warna tulisan
+      padding: 20px;
+      text-align: center;
+      font-size: 20px;
+    }
+
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+    </style>
+  </head>
+
+
+<body>
+
+<h1>BREAD (Browse, Read, Edit, Add, Delete)</h1>
+  <div id=menu>
+    <a href="/">Home</a> | <a href="add">Add</a>
+</div>
+
+  <br>
+
+<table style="width:100%">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>String</th>
+    <th>Integer</th>
+    <th>Float</th>
+    <th>Date</th>
+    <th>Boolean</th>
+    <th>Actions</th>
+  </tr>
+</thead>
+<tbody>
+  <% for(var i=0; i<data.length; i++) {%>
+  <tr>
+    <td><%=data[i].id %></td>
+    <td><%=data[i].string %></td>
+    <td><%=data[i].integer %></td>
+    <td><%=data[i].float %></th>
+    <td><%=data[i].date %></th>
+    <td><%=data[i].boolean %></th>
+    <td>
+        <button><a href="edit/<%=data[i].id %>" class="button1">edit</a></button>
+        <button onclick="return confirm('Are you sure?')"><a href="delete/<%=data[i].id %>" class = "button2">delete</a></button>
+    </td>
+  </tr>
+  <% } %>
+
+</table>
+
+<a href =
+
+
+
+
+  </body>
+</html>
