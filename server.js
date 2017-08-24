@@ -8,6 +8,7 @@ const DATA_PATH = path.join(__dirname, "data.json");
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -30,7 +31,6 @@ app.get("/", function(req, res) {
 app.get("/add", function(req, res) {
   res.render("add");
 });
-
 
 app.post("/add", function(req, res) {
   var id = Date.now();
@@ -72,7 +72,6 @@ app.get("/delete/:id", function(req, res) {
       console.error(err);
       res.send(err);
     } else {
-
       var data = JSON.parse(data);
       var id = Number(req.params.id);
       for (var i = 0; i < data.length; i++) {
@@ -92,8 +91,6 @@ app.get("/delete/:id", function(req, res) {
     });
   });
 });
-
-
 
 app.get("/edit/:id", function(req, res) {
   fs.readFile(DATA_PATH, function(err, data) {
@@ -122,7 +119,7 @@ app.post("/edit/:id", function(req, res) {
   var float = req.body.float;
   var date = req.body.date;
   var bool = req.body.bool;
-  console.log(req.body)
+  console.log(req.body);
   console.log();
   fs.readFile(DATA_PATH, function(err, data) {
     if (err) {
@@ -151,7 +148,7 @@ app.post("/edit/:id", function(req, res) {
       }
     });
   });
-})
+});
 
 app.listen(3000, function() {
   console.log("server is online");

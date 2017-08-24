@@ -1,21 +1,39 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
+  <% include partials/head %>
   <body>
+      <% include partials/header %>
+      <div class=container>
     <form class="" action="" method="post">
+
+
+      <div class="form-group">
       ID<br>
-      <input type="text" name="id" value="<%= data.id %>" readonly>
-      <br>String<br>
-      <input type="text" name="string" value="<%= data.string %>">
+      <input class="form-control" type="text" name="id" value="<%= data.id %>" readonly>
+      </div>
+
+
+
+      <div class="form-group">
+        <br>String<br>
+      <input class="form-control" type="text" name="string" value="<%= data.string %>">
+    </div>
+
+      <div class="form-group">
       <br>Integer<br>
-      <input type="number" name="integer" value="<%= data.integer %>">
+      <input class="form-control" type="number" name="integer" value="<%= data.integer %>">
+</div>
+
+    <div class="form-group">
       <br>Float<br>
-      <input type="number" name="float" step="0.01" value="<%= data.float %>">
+      <input class="form-control" type="number" name="float" step="0.01" value="<%= data.float %>">
+</div>
+
+  <div class="form-group">
       <br>Date<br>
-      <input name= "date" type="date" value="<%=data.date %>">
+      <input class="form-control" name= "date" type="date" value="<%=data.date %>">
+</div>
+
       <br>Boolean<br>
       <select name="bool">
         <option value="true" <%= data.bool === "true" ? ' selected' : '' %> >True</option>
@@ -23,6 +41,7 @@
       </select>
       <br><br>
       <button type="submit" name="button">update</button>
+
     </form>
-  </body>
-</html>
+  </div>
+<% include partials/footer %>

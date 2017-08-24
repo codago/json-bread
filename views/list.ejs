@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
+  <% include partials/head %>
 
-    <meta charset="utf-8">
-    <title></title>
-  </head>
   <body>
 
+  <% include partials/header %>
+  <div class="container">
+    <div class="jumbotron">
+      <h1 align="center">CRUD</h1>
+      <h2 align="center"> Create, Read, Update, Delete</h2>
+    </div>
+  </div>
 
-<br>
-
-
-  <table>
+  <table class="table table-striped">
     <thead>
       <tr>
       <th>ID</th>
@@ -34,7 +35,7 @@
            <td> <%= data[i].float %> </td>
            <td> <%= data[i].date %> </td>
            <td> <%= data[i].bool %> </td>
-           <td><button> <a href='/edit/<%= data[i].id %>'>Edit</a></button> <button onclick="return confirm('Are you sure you want to delete this item?')";><a href='/delete/<%= data[i].id %>'>Delete</a></button></td>
+           <td><button type="button" class="btn btn-success"> <a href='/edit/<%= data[i].id %>'>Edit</a></button> <button type="button" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?')";><a h`ref='/delete/<%= data[i].id %>'>Delete</a></button></td>
         </tr>
         <% } %>
       <% } else { %>
@@ -43,8 +44,7 @@
     </tbody>
 
   </table>
-  <a href='/add'>Tambah</a>
+  <button type="button" class="btn btn-primary"><a colo'white' href='/add'>Tambah</a></button>
   </form>
 
-  </body>
-</html>
+<% include partials/footer %>
