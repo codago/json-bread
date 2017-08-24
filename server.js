@@ -1,0 +1,111 @@
+const express = require('express')
+const app = express()
+const path = require('path')
+const fs = require('fs')
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({extended : true}))
+
+const DATA_PATH = path.join(__dirname, 'data.json')
+
+app.set('views', path.join(__dirname, 'views'))
+app.set('view engine', 'ejs')
+
+app.use(function( req, res, next){
+  res.setHeader('Acsess-Control-Allow-Origin', '*')
+  res.setHeader('Ceach-Control', 'no-cache')
+  next()
+})
+
+app.get('/',function(req, res){
+  fs.readFile(DATA_PATH, function(err, data){
+    if (err) {
+      console.error(err)
+    }
+    res.render('list', {data : JSON.parse(data)})
+  })
+})
+
+
+app.get('/add', function(req, res){
+   res.render('add')
+ })
+
+app.post('/add', function(req, res){
+   var id = Date.now()
+   var datanya = req.body;
+   datanya['id']=id
+  fs.readFile(DATA_PATH, function(err, data){
+    if (err) {
+      console.error(err)
+      res.send(err)
+    }else {
+      var data = JSON.parse(data);
+      data.push(datanya)
+      fs.writeFileSync(DATA_PATH, JSON.stringify(data))
+      res.redirect('/')
+     }
+   })
+})
+
+app.get('/edit/:id', function(req, res){
+  fs.readFile(DATA_PATH, function(err, data){
+    if (err) {
+      console.error(err)
+      res.send(err)
+    }else {
+      data = JSON.parse(data);
+      var id = Number(req.params.id)
+      var index = data.map(function(x){
+        return x.id;
+      }).indexOf(id)
+      res.render('edit', {item : data[index]})
+    }
+  })
+})
+
+
+ app.post('/edit/:id', function(req, res){
+   fs.readFile(DATA_PATH, function(err, data){
+     if (err) {
+       console.error(err)
+       res.send(err)
+     }else {
+       data = JSON.parse(data);
+       var id = Number(req.params.id)
+       var index = data.map(function(x){
+         return x.id;
+       }).indexOf(id)
+       data[index].string = req.body.string
+       data[index].integer = req.body.integer
+       data[index].float = req.body.float
+       data[index].date = req.body.date
+       data[index].boolean = req.body.boolean
+      fs.writeFileSync(DATA_PATH, JSON.stringify(data))
+      res.redirect('/')
+    }
+  })
+ })
+
+
+app.get('/delete/:id', function(req, res){
+  fs.readFile(DATA_PATH, function(err, data){
+    if (err) {
+      console.error(err)
+      res.send(err)
+    }else {
+      data = JSON.parse(data);
+      var id = Number(req.params.id)
+      var index = data.filter(function(x){
+        return x.id != id;
+      })
+    fs.writeFileSync(DATA_PATH, JSON.stringify(index))
+    res.redirect('/')
+    }
+  })
+})
+
+
+
+app.listen(3000, function(){
+  console.log("server jalan di port 3000");
+})
