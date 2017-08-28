@@ -1,0 +1,43 @@
+<% include partials/headertop %>
+<% include partials/header %>
+<% include partials/menu %>
+
+<div id="container">
+
+     <table style="text-align: center" class="table table-strip">
+       <thead>
+         <tr>
+            <th>ID</th>
+            <th>Nama</th>
+            <th>Umur</th>
+            <th>Tinggi</th>
+            <th>Tanggal Lahir</th>
+            <th>Status Pernikahan</th>
+            <th colspan="2"  >ACTION</th>
+          </tr>
+      </thead>
+      <tbody>
+        <%
+        for (var i=0; i<data.length; i++)
+        { %>
+        <tr>
+          <td>  <%= data[i].id      %></td>
+          <td>  <%= data[i].string  %></td>
+          <td>  <%= data[i].integer %></td>
+          <td>  <%= data[i].float   %></td>
+          <td>  <%= data[i].date    %></td>
+          <td>  <%= data[i].boolean %></td>
+          <td>  <a class="btn btn-success" href="/edit/<%= data[i].id %>"> Edit    </a></td>
+          <td>
+            <a  class="btn btn-danger" href="/delete/<%= data[i].id %>" class='delete'
+            onclick="return confirm('Yakin menghapusn data?');">Delete</a>
+          </td>
+        </tr>
+      <% } %>
+      </tbody>
+
+     </table>
+
+</div>
+
+<% include partials/footer %>

@@ -1,0 +1,26 @@
+[
+   {
+      "id": 1503556523358,
+      "string": "Markus",
+      "integer": "23",
+      "float": "160.5",
+      "date": "27-8-1993",
+      "boolean": "True"
+   },
+   {
+      "id": 1503559648903,
+      "string": "William",
+      "integer": "21",
+      "float": "165.56",
+      "date": "2017-08-18",
+      "boolean": "true"
+   },
+   {
+      "id": 1503559759183,
+      "string": "Firman",
+      "integer": "33",
+      "float": "165.22",
+      "date": "2017-08-01",
+      "boolean": "false"
+   }
+]

@@ -1,0 +1,54 @@
+<% include partials/headertop %>
+<% include partials/header %>
+<% include partials/menu %>
+
+<div id="container">
+      <form action="/edit/<%= item.id %>" method="post">
+       <table>
+
+         <tr>
+           <td>ID</td>
+           <td><input name="id" value="<%= item.id %>" /></td>
+         </tr>
+
+        <tr>
+          <td>String</td>
+          <td><input name="string" value="<%= item.string %>" /></td>
+        </tr>
+
+        <tr>
+          <td>Integer</td>
+          <td><input name="integer" value="<%= item.integer %>" /></td>
+        </tr>
+
+        <tr>
+          <td>Float</td>
+          <td><input name="float" value="<%= item.float %>" /></td>
+        </tr>
+
+        <tr>
+          <td>Date</td>
+          <td><input name="date" value="<%= item.date %>" type="date" /></td>
+        </tr>
+
+        <tr>
+          <td>Boolean</td>
+          <td><select name="boolean">
+                        <option value="<%= item.boolean %>">True</option>
+                        <option value="True">True</option>
+                        <option value="False">False</option>
+                </select>
+          </td>
+        </tr>
+
+        <tr>
+
+          <td colspan="3"><input type="submit" value="EDIT"></input></td>
+
+        </tr>
+       </table>
+     </form>
+
+   </div>
+
+   <% include partials/footer %>
