@@ -10,6 +10,8 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.use(express.static(path.join(__dirname, 'public')))
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -45,7 +47,7 @@ app.post('/add', function(req,res) {
       res.send(err);
     } else {
       var data = JSON.parse(data);
-      data.push({id: id, string: req.body.string, integer: req.body.integer, float: req.body.float, date: req.body.date1, boolean: req.body.boolean })
+      data.push({id: id, string: req.body.string, integer: req.body.integer, float: req.body.float, date: req.body.date, boolean: req.body.boolean })
     }
     fs.writeFile(DATA_PATH, JSON.stringify(data, null, 3), function(err) {
       if(err) {
