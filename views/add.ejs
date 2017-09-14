@@ -1,57 +1,77 @@
-<!DOCTYPE html>
+<% include partials/header %>
+    <h1>ADD DATA</h1>
 
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>NAUGHTY AMERICA NOBODY DOES BETTER</title>
-  </head>
-  <body>
-    <h1><strong>BREAD: Brave, Ready, Encourage, Ad', Dead</strong></h1>
+    <style>
+    h1 {text-align: center;}
+    </style>
+      <h1>CRUD (Create - Read - Update - Delete)</h1>
+      <br>
+
+      <div class="container">
+
+        <div class="jumbotron">
+        <div class="panel">
+          <div class="panel-heading">
+          </div>
+
+
+    <div class="container">
     <div id=menu>
-       <a href="/">home</a> | <a href="ADD">Add</a>
- <br>
- <br>
- <br>
-       <form action="/add" method="post">
-       <table>
-        <tr>
-          <td>string</td>
-          <td><input name="string"></input></td>
-        </tr>
+      <a class="btn btn-success" href="/">Home</a>
 
-        <tr>
-          <td>Integer</td>
-          <td><input type='number' name="integer" step='1'></input></td>
-        </tr>
-
-        <tr>
-          <td>Float</td>
-          <td><input type='number' name="float" step='0,01'></input></td>
-        </tr>
-
-        <tr>
-          <td>Date</td>
-          <td><input name="start_date" type="date"></input></td>
-        </tr>
-
-        <tr>
-          <td>Boolean</td>
-          <td><select name="boolean">
-                        <option value="True">True</option>
-                        <option value="False">False</option>
-                </select>
-          </td>
-        </tr>
-
-        <tr>
-
-          <td colspan="3"><input type="submit" value="ADD"></input></td>
-
-        </tr>
-       </table>
-     </form>
-
+  <br>
+  <br>
+  <br>
+<!-- //harus ada onsubmit -->
+<form class="form-horizontal" method="post">
+ <div class="form-group">
+   <label class="control-label col-sm-2" for="string">String:</label>
+   <div class="col-sm-10">
+     <input id="string" type="text" name = "string" class="form-control" placeholder="Input Data (string)"required>
+   </div>
+ </div>
+ <div class="form-group">
+   <label class="control-label col-sm-2" for="number">Integer:</label>
+   <div class="col-sm-10">
+     <input type="number" step="1" name = "integer" step="1" class="form-control" placeholder="Integer number" required>
+   </div>
+ </div>
+ <div class="form-group">
+   <label class="control-label col-sm-2" for="number">Float:</label>
+   <div class="col-sm-10">
+     <input type="number" class="form-control" name="float" step="0.01" placeholder="Enter float" required>
+   </div>
+ </div>
+ <div class="form-group">
+   <label class="control-label col-sm-2" for="date">Date:</label>
+   <div class="col-sm-10">
+     <input type="date" class="form-control" name="date" placeholder="Enter date" required>
+   </div>
+ </div>
+ <div class="form-group">
+   <label class="control-label col-sm-2" for="Boolean">Boolean:</label>
+   <div class="col-sm-10">
+     <select name="boolean" class="form-control">
+       <option>Choose the Boolean</option>
+       <option>true</option>
+       <option>false</option>
+     </select>
+   </div>
+ </div>
+ <div class="form-group">
+   <div class="col-sm-offset-2 col-sm-10">
+     <button type="submit" class="btn btn-default">Submit</button>
+   </div>
+ </div>
+</form>
+    <form action="/add" method="post" onsubmit="return check()">
+      <table>
+    <tr>
+<!-- //harus ditambah id untuk jadi patokan function -->
 
     </div>
-  </body>
-</html>
+    </form>
+
+  </div>
+  <script type="text/javascript" src="/js/validate.js"></script>
+  <% include partials/footer %>
