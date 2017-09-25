@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="utf-8">
+  <title>Edit Data</title>
+  <link rel="stylesheet" href="/css/bootstrap.css">
+</head>
+<body>
+  <h1>Edit Data</h1>
+
+  <form  action="/edit/<%= item.id %>" method="post" class="form-horizontal">
+
+    <div class="form-group">
+    <label for="string" class="col-sm-2 control-label">String</label>
+    <div class="col-sm-10">
+      <input type="text" name="string" class="form-control" id="string" value="<%= item.string %>" placeholder="">
+    </div>
+    </div>
+    <!--String <input type="text" name="string" value="<%= item.string %>"><br> -->
+
+    <div class="form-group">
+    <label for="string" class="col-sm-2 control-label">String</label>
+    <div class="col-sm-10">
+      <input type="number" name="integer" class="form-control" id="integer" value="<%= item.integer %>" placeholder="">
+    </div>
+    </div>
+    <!--Integer <input type="number" name="integer" value="<%= item.integer %>"><br> -->
+
+    <div class="form-group">
+    <label for="string" class="col-sm-2 control-label">String</label>
+    <div class="col-sm-10">
+      <input type="float" name="float" class="form-control" id="float" value="<%= item.float %>" placeholder="">
+    </div>
+    </div>
+    <!--Float <input type="float" name="float" value="<%= item.float %>"><br>-->
+
+    <div class="form-group">
+    <label for="string" class="col-sm-2 control-label">String</label>
+    <div class="col-sm-10">
+      <input type="date" name="date" class="form-control" id="date" value="<%= item.date %>" placeholder="">
+    </div>
+    </div>
+    <!--Date <input type="date" name="date" value="<%= item.date %>"><br>-->
+
+    <div class="form-group">
+    <label for="boolean" class="col-sm-2 control-label">Boolean</label>
+    <div class="col-sm-10">
+      <select name="boolean" class="form-control"  >
+        <option class="form-control" value="true"<%= item.boolean == "true"?'selected':''%>True</option>
+        <option  class="form-control" value="false"<%= item.boolean == "false"?'selected':''%>False</option>
+      </select>
+    </div>
+    </div>
+
+
+<!--   <select name="boolean" >
+     <option value="true"<%= item.boolean == "true"?'selected':''%>true</option>
+     <option value="false"<%= item.boolean == "false"?'selected':''%>false</option><br/>
+   </select>-->
+
+   <div class="form-group">
+   <div class="col-sm-2 control-label"></div>
+   <div class="col-sm-10">
+   </br><button class="btn btn-primary" type="submit" >update</button>
+   </div>
+   </div>
+
+
+    </form>
+  </body>
+  </html>

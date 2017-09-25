@@ -1,0 +1,34 @@
+[
+   {
+      "id": 1503554773904,
+      "string": "yongkru",
+      "integer": "99",
+      "float": "1.9",
+      "date": "2017-08-10",
+      "boolean": "true"
+   },
+   {
+      "id": 1503555429913,
+      "string": "fgt",
+      "integer": "234",
+      "float": "4.5",
+      "date": "2017-08-21",
+      "boolean": "true"
+   },
+   {
+      "id": 1503562739514,
+      "boolean": "false",
+      "string": "dfdfdf",
+      "date": "2017-08-02",
+      "integer": "43434",
+      "float": "7.7"
+   },
+   {
+      "id": 1503568043081,
+      "string": "",
+      "integer": "",
+      "float": "",
+      "date": "",
+      "boolean": "false"
+   }
+]
