@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+
+  <h1>BREAD(Browse,Read,Edit,Add,Delete)</h1>
+  <h2>Filters</h2>
+  <div class="form-group">
+    <label for="inputPassword" class="col-sm-2 control-label"><input type="checkbox" value="">ID   </label>
+    <div class="col-sm-10">
+      <input type="ID" class="form-control" id="inputPassword" placeholder="ID">
+
+    </div>
+
+    <label for="inputPassword" class="col-sm-2 control-label"><input type="checkbox" value="">String  </label>
+    <div class="col-sm-10">
+      <input type="String" class="form-control" id="inputPassword" placeholder="String">
+    </div>
+    <label for="inputPassword" class="col-sm-2 control-label"><input type="checkbox" value="">Integer  </label>
+    <div class="col-sm-10">
+      <input type="Integer" class="form-control" id="inputPassword" placeholder="Integer">
+    </div>
+    <label for="inputPassword" class="col-sm-2 control-label"><input type="checkbox" value="">Float  </label>
+    <div class="col-sm-10">
+      <input type="Float" class="form-control" id="inputPassword" placeholder="Float">
+    </div>
+    <label for="inputPassword" class="col-sm-2 control-label"><input type="checkbox" value="">Date  </label>
+    <div class="col-sm-10">
+      <input type="Date" class="form-control" id="inputPassword" placeholder="Date">
+    </div>
+    <div class="form-group">
+      <label for="inputPassword" class="col-sm-2 control-label"><input type="checkbox" value="">Boolean </label>
+      <div class="col-sm-10">
+        <select name="Boolean" class="form-control">
+          <option class="form-control" value="true">True</option>
+          <<option class="form-control" value="false">False</option>
+        </select>
+
+      </div>
+    </div>
+
+
+
+  </select>
+  <br/>
+  <a style=="button" class="btn btn-primary" href="https://google.com">Search</a>
+
+  <%= data.length %>
+  <table class="table table-bordered">
+    <tr>
+      <th>ID</th>
+      <th>String</th>
+      <th>Integer</th>
+      <th>Float</th>
+      <th>Date</th>
+      <th>Boolean</th>
+      <th>Actions</th>
+    </tr>
+
+    <% for(var i=0; i<data.length; i++) {%>
+      <tr>
+        <td><%= data[i].id %></td>
+        <td><%= data[i].string %></td>
+        <td><%= data[i].integer %></td>
+        <td><%= data[i].float %></td>
+        <td><%= data[i].date %></td>
+        <td><%= data[i].boolean%></td>
+        
+        <td><a href='edit/<%= data[i].id %>' class="btn btn-success"> Edit </a> &nbsp;
+          <a href= 'delete/<%= data[i].id%>' class ="btn btn-danger" onclick="return confirm('Asli nih ');" > Delete </button></td>
+          </td>
+
+        </tr>
+        <% } %>
+
+      </table>
+      </html>
+
+    </select>
+    <br />
+
+    <a style=="button" class="btn btn-primary" href="add">Add</a>
+
+  </body>
+  </html>
