@@ -9,11 +9,16 @@
   <h1>Add Data</h1>
   <form action="/add" method="post" onsubmit="return check()">
     <div class="form-group">
-      <label for="inputPassword" class="col-sm-2 control-label">string </label>
+      <label for="inputPassword" class="col-sm-2 control-label">nama </label>
       <div class="col-sm-10">
-        <input type="string" class="form-control" id="string" type="text"name="string" value="" placeholder="String">
-
+        <input type="nama" class="form-control" id="nama" type="text"name="nama" value="" placeholder="Nama">
       </div>
+    </div>
+
+    <label for="inputPassword" class="col-sm-2 control-label">string </label>
+    <div class="col-sm-10">
+      <input type="string" class="form-control" id="string" type="text"name="string" value="" placeholder="String">
+
     </div>
 
     <label for="inputPassword" class="col-sm-2 control-label">Integer</label>
@@ -37,9 +42,9 @@
     <label for="inputPassword" class="col-sm-2 control-label">Boolean</label>
     <div class="col-sm-10">
       <select name="boolean" class="form-control">
-        +      <option value="true">True</option>
-        +      <option value="false">False</option>
-        +    </select>
+              <option value="true">True</option>
+              <option value="false">False</option>
+            </select>
       </div>
 
 

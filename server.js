@@ -25,7 +25,74 @@ app.get('/', function (req, res) {
     if (err) {
       console.error(err);
     }
-    res.render('list',{data:JSON.parse(data)})
+    let datas = JSON.parse(data);
+    let id,nama, string, integer, float, date, boolean, filter = false;
+    if(typeof req.query.cek_id !== 'undefined'){
+       id = req.query.id;
+       filter = true;
+    }
+    if(typeof req.query.cek_nama !== 'undefined'){
+       nama = req.query.nama;
+       filter = true;
+    }
+    if(typeof req.query.cek_string !== 'undefined'){
+       string = req.query.string;
+       filter = true;
+    }
+    if(typeof req.query.cek_integer !== 'undefined'){
+       integer = req.query.integer;
+       filter = true;
+    }
+    if(typeof req.query.cek_float !== 'undefined'){
+       float = req.query.float;
+       filter = true;
+    }
+    if(typeof req.query.cek_date !== 'undefined'){
+       date = req.query.date;
+       filter = true;
+    }
+    if(typeof req.query.cek_boolean !== 'undefined'){
+       boolean = req.query.boolean;
+       filter = true;
+    }
+
+    if(filter){
+      let d = datas.filter(function(val) {
+                if(val.id == id ||val.nama== nama || val.string== string|| val.integer== integer|| val.float == float|| val.date == date || val.boolean == boolean){
+                  return val;
+                }
+              })
+        datas = d;
+    }
+
+    let get_links = req.originalUrl;
+    var the_arr = get_links.split('&pag_active');
+    if(get_links.includes("?pag_active"))
+      the_arr = get_links.split('?pag_active');
+    let get_link = the_arr[0];
+
+    if(get_link.length > 1){
+      get_link = get_link + "&";
+    }else {
+      get_link = get_link + "?";
+    }
+
+    let pag_length = Math.ceil(datas.length / 2);
+    let pag_active = 1;
+    if (typeof req.query.pag_active !== 'undefined') {
+      pag_active = req.query.pag_active;
+    }
+
+    let finish = [],
+    pag_ac =(Number(pag_active) * 2) - 1;
+    datas.map(function(obj, key) {
+      // console.log(key > pag_ac - 2 , key <= pag_ac, key, pag_ac);
+      if(key > pag_ac - 2 && key <= pag_ac){
+         finish.push(obj)
+      }
+    });
+
+    res.render('list',{data:finish, pag_active:pag_active, pag_length:pag_length, get_link: get_link})
   })
 })
 
@@ -57,7 +124,7 @@ app.post('/add', function (req, res) {
 })
 
 app.get('/edit/:id', function (req, res) {
-  console.log(req.params.id);
+
 
   fs.readFile(DATA_PATH, function (err, data) {
     if (err) {
@@ -88,6 +155,7 @@ app.post('/edit/:id', function (req, res) {
       let index = data.map(function(x){
         return x.id
       }).indexOf(id);
+      data[index].nama=req.body.nama
       data[index].string = req.body.string
       data[index].integer = req.body.integer
       data[index].float = req.body.float
