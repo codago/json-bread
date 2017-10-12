@@ -1,4 +1,4 @@
-const express = require("express");
+  const express = require("express");
 const app = express();
 const path = require("path");
 const fs = require("fs");
@@ -35,11 +35,11 @@ app.get("/add", function(req, res) {
 app.post("/add", function(req, res) {
   var id = Date.now();
   var string = req.body.string;
-  var integer = req.body.integer;
-  var float = req.body.float;
+  var integer = parseInt(req.body.integer);
+  var float = parseFloat(req.body.float);
   var date = req.body.date;
-  var bool = req.body.bool;
-  console.log(req.body);
+  var bool = (req.body.bool === "True" ? true : false);
+  console.log("ini req.body add:", req.body);
   fs.readFile(DATA_PATH, function(err, data) {
     if (err) {
       console.error(err);
@@ -74,6 +74,7 @@ app.get("/delete/:id", function(req, res) {
     } else {
       var data = JSON.parse(data);
       var id = Number(req.params.id);
+      console.log(data);
       for (var i = 0; i < data.length; i++) {
         if (data[i].id === id) {
           data.splice(i, 1);

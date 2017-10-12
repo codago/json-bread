@@ -22,7 +22,7 @@
       <div class="form-group">
       <br>Integer<br>
       <input class="form-control" type="number" name="integer" value="<%= data.integer %>">
-</div>
+  </div>
 
     <div class="form-group">
       <br>Float<br>
@@ -35,12 +35,12 @@
 </div>
 
       <br>Boolean<br>
-      <select name="bool">
-        <option value="true" <%= data.bool === "true" ? ' selected' : '' %> >True</option>
-        <option value="false" <%= data.bool  === "false" ? ' selected' : '' %> >False</option>
+      <select class="form-control" name="bool">
+        <option value="True" <%= data.bool === true ? ' selected' : '' %> >True</option>
+        <option value="False" <%= data.bool  === false ? ' selected' : '' %> >False</option>
       </select>
       <br><br>
-      <button type="submit" name="button">update</button>
+      <button class="btn btn-primary" type="submit" name="button">Update</button>
 
     </form>
   </div>
